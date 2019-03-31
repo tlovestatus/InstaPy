@@ -9,8 +9,8 @@ import random
 
 sched = BlockingScheduler()
 
-@sched.scheduled_job('interval', minutes=3)
-def timed_job():
+@sched.scheduled_job('cron', hour=17)
+def scheduled_job:
     users_to_follow = ['ramoswasoffside', 'passporttoearth', 'fav_skies', 'super_photosunsets', 'njsunrise_sunset', 'adventures_shutter', 'myskynow', 'newjerseyisbeautiful', 'igersmood', 'amazingly_sunsets', 'hey_ihadtosnapthat', 'passion_4_living_photos', 'goventureorange', 'onlythebestcapture', 'goandcapturethelight', 'bestpicturesgallery', 'rthouse']
     random.shuffle(users_to_follow)
     # set workspace folder at desired location (default is at your home folder)
@@ -25,14 +25,9 @@ def timed_job():
         """ Activity flow """
         # general settings
         session.set_dont_include(["friend1", "friend2", "friend3"])
-        session.follow_likers(users_to_follow, photos_grab_amount=1, follow_likers_per_photo=30, randomize=False, sleep_delay=60, interact=False)
-        session.unfollow_users(amount=226, allFollowing=True, style="LIFO", unfollow_after=48 * 60 * 60, sleep_delay=10)
+        session.follow_likers(users_to_follow, photos_grab_amount=1, follow_likers_per_photo=14, randomize=False, sleep_delay=60, interact=False)
+        session.unfollow_users(amount=250, allFollowing=True, style="LIFO", unfollow_after=48 * 60 * 60, sleep_delay=10)
         # activity
         #session.like_by_tags(["natgeo"], amount=10)
-    print('This job is run every three minutes.')
-
-@sched.scheduled_job('cron', day_of_week='mon-fri', hour=17)
-def scheduled_job():
-    print('This job is run every weekday at 5pm.')
 
 sched.start()
