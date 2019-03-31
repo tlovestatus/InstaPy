@@ -1,1 +1,1 @@
-worker: python quickstart.py
+clock: python clock.py
