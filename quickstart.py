@@ -13,7 +13,7 @@ set_workspace(path=None)
 # get an InstaPy session!
 session = InstaPy(username="mufnature",
                   password="2611fine",
-                  headless_browser=False)
+                  headless_browser=True)
 
 with smart_run(session):
     """ Activity flow """
