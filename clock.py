@@ -7,15 +7,18 @@ from instapy import InstaPy
 from instapy import smart_run
 from instapy import set_workspace
 import random
+from instapy import get_workspace
 
 sched = BlockingScheduler()
 
-@sched.scheduled_job('cron', hour=0,minute='3')
+@sched.scheduled_job('cron', hour=6,minute='17')
 def scheduled_job():
     users_to_follow = ['ramoswasoffside', 'passporttoearth', 'fav_skies', 'super_photosunsets', 'njsunrise_sunset', 'adventures_shutter', 'myskynow', 'newjerseyisbeautiful', 'igersmood', 'amazingly_sunsets', 'hey_ihadtosnapthat', 'passion_4_living_photos', 'goventureorange', 'onlythebestcapture', 'goandcapturethelight', 'bestpicturesgallery', 'rthouse']
     random.shuffle(users_to_follow)
     # set workspace folder at desired location (default is at your home folder)
-    set_workspace(path="./")
+    set_workspace(path=None)
+    workspace_in_use = get_workspace()
+    print(workspace_in_use["path"])
 
     # get an InstaPy session!
     session = InstaPy(username=os.environ['username'],
