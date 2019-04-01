@@ -13,7 +13,7 @@ sched = BlockingScheduler()
 
 @sched.scheduled_job('cron', hour=os.environ['hour'],minute=os.environ['minute'])
 def scheduled_job():
-    follow_likers_of_users = os.environ['follow_likers_of_users']
+    follow_likers_of_users = ['ramoswasoffside', 'passporttoearth', 'fav_skies', 'super_photosunsets', 'njsunrise_sunset', 'adventures_shutter', 'myskynow', 'newjerseyisbeautiful', 'igersmood', 'amazingly_sunsets', 'hey_ihadtosnapthat', 'passion_4_living_photos', 'goventureorange', 'onlythebestcapture', 'goandcapturethelight', 'bestpicturesgallery', 'rthouse']
     random.shuffle(follow_likers_of_users)
     # set workspace folder at desired location (default is at your home folder)
     set_workspace(path="./")
