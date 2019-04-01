@@ -15,7 +15,7 @@ def scheduled_job():
     users_to_follow = ['ramoswasoffside', 'passporttoearth', 'fav_skies', 'super_photosunsets', 'njsunrise_sunset', 'adventures_shutter', 'myskynow', 'newjerseyisbeautiful', 'igersmood', 'amazingly_sunsets', 'hey_ihadtosnapthat', 'passion_4_living_photos', 'goventureorange', 'onlythebestcapture', 'goandcapturethelight', 'bestpicturesgallery', 'rthouse']
     random.shuffle(users_to_follow)
     # set workspace folder at desired location (default is at your home folder)
-    set_workspace(path=None)
+    set_workspace(path="./")
 
     # get an InstaPy session!
     session = InstaPy(username=os.environ['username'],
