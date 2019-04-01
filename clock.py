@@ -29,8 +29,8 @@ def scheduled_job():
         """ Activity flow """
         # general settings
         session.set_dont_include(["friend1", "friend2", "friend3"])
-        session.follow_likers(users_to_follow, photos_grab_amount=1, follow_likers_per_photo=14, randomize=False, sleep_delay=60, interact=False)
-        session.unfollow_users(amount=250, allFollowing=True, style="LIFO", unfollow_after=48 * 60 * 60, sleep_delay=10)
+        #session.follow_likers(users_to_follow, photos_grab_amount=1, follow_likers_per_photo=14, randomize=False, sleep_delay=60, interact=False)
+        session.unfollow_users(amount=250, allFollowing=True, style="LIFO", unfollow_after=48 * 60 * 60, sleep_delay=random.randint(1, 10)*60)
         # activity
         #session.like_by_tags(["natgeo"], amount=10)
 
