@@ -11,7 +11,7 @@ from instapy import get_workspace
 
 sched = BlockingScheduler()
 
-@sched.scheduled_job('cron', hour=6,minute='54')
+@sched.scheduled_job('cron', hour=7,minute='3')
 def scheduled_job():
     users_to_follow = ['ramoswasoffside', 'passporttoearth', 'fav_skies', 'super_photosunsets', 'njsunrise_sunset', 'adventures_shutter', 'myskynow', 'newjerseyisbeautiful', 'igersmood', 'amazingly_sunsets', 'hey_ihadtosnapthat', 'passion_4_living_photos', 'goventureorange', 'onlythebestcapture', 'goandcapturethelight', 'bestpicturesgallery', 'rthouse']
     random.shuffle(users_to_follow)
@@ -23,7 +23,7 @@ def scheduled_job():
     # get an InstaPy session!
     session = InstaPy(username=os.environ['username'],
                       password=os.environ['password'],
-                      headless_browser=False)
+                      headless_browser=True)
 
     with smart_run(session):
         """ Activity flow """
