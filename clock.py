@@ -11,7 +11,7 @@ from instapy import get_workspace
 
 sched = BlockingScheduler()
 
-@sched.scheduled_job('cron', hour=7,minute='3')
+@sched.scheduled_job('cron', hour=os.environ['hour'],minute=os.environ['minute'])
 def scheduled_job():
     users_to_follow = ['ramoswasoffside', 'passporttoearth', 'fav_skies', 'super_photosunsets', 'njsunrise_sunset', 'adventures_shutter', 'myskynow', 'newjerseyisbeautiful', 'igersmood', 'amazingly_sunsets', 'hey_ihadtosnapthat', 'passion_4_living_photos', 'goventureorange', 'onlythebestcapture', 'goandcapturethelight', 'bestpicturesgallery', 'rthouse']
     random.shuffle(users_to_follow)
