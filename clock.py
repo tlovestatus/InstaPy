@@ -10,7 +10,7 @@ import random
 
 sched = BlockingScheduler()
 
-@sched.scheduled_job('cron', hour=23,minute='51')
+@sched.scheduled_job('cron', hour=0,minute='3')
 def scheduled_job():
     users_to_follow = ['ramoswasoffside', 'passporttoearth', 'fav_skies', 'super_photosunsets', 'njsunrise_sunset', 'adventures_shutter', 'myskynow', 'newjerseyisbeautiful', 'igersmood', 'amazingly_sunsets', 'hey_ihadtosnapthat', 'passion_4_living_photos', 'goventureorange', 'onlythebestcapture', 'goandcapturethelight', 'bestpicturesgallery', 'rthouse']
     random.shuffle(users_to_follow)
