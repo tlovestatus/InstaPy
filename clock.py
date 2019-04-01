@@ -2,6 +2,7 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 """ Quickstart script for InstaPy usage """
 
 # imports
+import os
 from instapy import InstaPy
 from instapy import smart_run
 from instapy import set_workspace
@@ -9,7 +10,7 @@ import random
 
 sched = BlockingScheduler()
 
-@sched.scheduled_job('cron', hour=17)
+@sched.scheduled_job('cron', hour=23,minute='46')
 def scheduled_job():
     users_to_follow = ['ramoswasoffside', 'passporttoearth', 'fav_skies', 'super_photosunsets', 'njsunrise_sunset', 'adventures_shutter', 'myskynow', 'newjerseyisbeautiful', 'igersmood', 'amazingly_sunsets', 'hey_ihadtosnapthat', 'passion_4_living_photos', 'goventureorange', 'onlythebestcapture', 'goandcapturethelight', 'bestpicturesgallery', 'rthouse']
     random.shuffle(users_to_follow)
@@ -17,8 +18,8 @@ def scheduled_job():
     set_workspace(path=None)
 
     # get an InstaPy session!
-    session = InstaPy(username="mufnature",
-                      password="2611fine",
+    session = InstaPy(username=os.environ['username'],
+                      password=os.environ['password'],
                       headless_browser=False)
 
     with smart_run(session):
