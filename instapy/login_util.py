@@ -191,7 +191,7 @@ def login_user(browser,
     # Check if the first div is 'Create an Account' or 'Log In'
     try:
         login_elem = browser.find_element_by_xpath(
-            "//div[text()='Log in']")
+            "//a[text()='Log in']")
     except NoSuchElementException:
         print("Login A/B test detected! Trying another string...")
         try:
@@ -257,7 +257,7 @@ def login_user(browser,
 
     try:
         login_button = browser.find_element_by_xpath(
-            "//div[text()='Log In']")
+            "//div[text()='Log in']")
     except NoSuchElementException:
         print("Login A/B test detected! Trying another string...")
         login_button = browser.find_element_by_xpath(
